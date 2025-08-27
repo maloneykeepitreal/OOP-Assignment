@@ -1,0 +1,36 @@
+# Base class
+class Device:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+
+    def device_info(self):
+        return f"{self.brand} {self.model}"
+
+
+# Derived class
+class Smartphone(Device):
+    def __init__(self, brand, model, storage, camera):
+        # Call parent constructor
+        super().__init__(brand, model)
+        self.storage = storage
+        self.camera = camera
+
+    def take_photo(self):
+        print(f"Taking a photo with {self.camera}MP camera.")
+
+    def storage_info(self):
+        print(f"This phone has {self.storage}GB of storage.")
+
+
+# Example usage
+phone1 = Smartphone("Samsung", "Galaxy S24", 256, 108)
+phone2 = Smartphone("Apple", "iPhone 15", 512, 48)
+
+print(phone1.device_info())
+phone1.take_photo()
+phone1.storage_info()
+
+print(phone2.device_info())
+phone2.take_photo()
+phone2.storage_info()
